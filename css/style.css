@@ -1,0 +1,137 @@
+body {
+  background-color: white;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.header0 {
+  padding: 0;
+  padding: 3px;
+  margin: 0;
+  /*  width: 98%;*/
+  /*  width: calc(100% - 15px);*/
+  /*  align-items: center;*/
+}
+
+.main0 {
+  padding: 0;
+  margin: 0;
+  width: calc(100% - 15px);
+}
+
+.padding0 {
+  padding: 0;
+  margin: 0;
+}
+
+.main1 {
+  margin-top: 2px;
+}
+
+.btn_go, .btn_reload {
+  padding: 8px 16px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  /*  max-height: 30px !important;*/
+  /*  height: 30px;*/
+  /*  line-height: 30px;*/
+  /*  font-size: 12px;*/
+}
+
+.txt_url {
+  /*  font-size: 16px !important;*/
+  /*  font-style: normal !important;*/
+  /*  line-height: 24px !important;*/
+  /*  max-height: 30px !important;*/
+  padding: 6px 12px;
+  /*  border-radius: 5px !important;*/
+}
+
+
+/*.frm1_container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+ }
+
+.frm1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}*/
+
+
+.frm1_container {
+  padding-left: 5px;
+  padding-right: 5px;
+ }
+
+
+
+.loading-image {
+  /*position: absolute;
+  top: 100px;
+  left: 240px;
+  z-index: 100;*/
+}
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.7;
+  background-color: #000;
+  z-index: 99;
+  text-align: center;
+}
+
+.loading-image {
+  position: fixed;
+  width: 80px;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: -webkit-translate(-50%, -50%);
+  transform: -moz-translate(-50%, -50%);
+  transform: -ms-translate(-50%, -50%);
+}
+
+.icon_right {
+  background: url("../images/arrow-right.png") no-repeat scroll 0 0 transparent;
+}
+
+.icon_reload {
+  background: url("../images/reload.png") no-repeat scroll 0 0 transparent;
+}
+
+
+.icon1 {
+  /*  background: url("../images/arrow-right.png") no-repeat scroll 0 0 transparent;*/
+  color: #000000;
+  cursor: pointer;
+  font-weight: bold;
+  /*  height: 14px;*/
+  /*  width: auto;*/
+  /*  padding-bottom: 2px;*/
+  /*  width: 75px;*/
+  width: 15px;
+  height: 15px;
+  display: inline-block; 
+  background-position: center;
+  background-size: contain;
+}
+
+
+
+.ul_url_list li {
+  text-decoration: underline;
+  color: green;
+  cursor: pointer;
+}

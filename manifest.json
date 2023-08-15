@@ -1,0 +1,62 @@
+{
+  "manifest_version": 1,
+  "name": "Zhong PWA",
+  "short_name": "ZhongPWA",
+  "version": "1.0",
+  "author": "Jeffry Tambari",
+  "homepage_url": "https://jeffrytambari.info",
+  "description": "Zhong PWA for zhongwen extension.",
+  "theme_color": "#ABCDEF",
+  "background_color": "#EEEEEE",
+  "display": "standalone",
+  "scope": "/",
+  "id": "/?homescreen=1",
+  "start_url": "/zhongpwa/",
+  "display_override": ["window-control-overlay", "minimal-ui"],
+  "capture_links": "new-client",
+  "icon": "images/icons/256x256.png",
+  "icons": [
+    {
+      "type": "image/png",
+      "sizes": "192x192",
+      "src": "images/icons/192x192.png"
+    },
+    {
+      "type": "image/png",
+      "sizes": "48x48",
+      "src": "images/icons/48x48.png"
+    },
+    {
+      "type": "image/png",
+      "sizes": "72x72",
+      "src": "images/icons/72x72.png"
+    },
+    {
+      "type": "image/png",
+      "sizes": "128x128",
+      "src": "images/icons/128x128.png"
+    },
+    {
+      "type": "image/png",
+      "sizes": "384x384",
+      "src": "images/icons/384x384.png"
+    },
+    {
+      "type": "image/png",
+      "sizes": "512x512",
+      "src": "images/icons/512x512.png"
+    },
+    {
+      "type": "image/png",
+      "sizes": "96x96",
+      "src": "images/icons/96x96.png"
+    },
+    {
+      "type": "image/png",
+      "sizes": "1024x1024",
+      "src": "images/icons/1024x1024_maskable.png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["learning", "utilities", "chinese"]
+}
