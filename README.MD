@@ -12,8 +12,8 @@ git clone https://github.com/jeffrytambari1/zhongpwa.git
 cd zhongpwa
 git clone https://github.com/cschiller/zhongwen.git
 ```
-After running above commands, your 'zhongpwa' directory would be in main directory, example: public_html or htdocs or www.
-Then your folder structure would like this:
+- Folder structure
+After running above commands, your zhongpwa directory would be in main directory, example: public_html or htdocs or www. Then your folder structure would like this:
 ```
 zhongpwa
     \css
