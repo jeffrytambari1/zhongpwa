@@ -3,6 +3,8 @@
 ini_set('display_errors', 0);
 ini_set('memory_limit', '100M');
 
+header("Access-Control-Allow-Origin: *");
+
 function shutdown() {
   $ee = error_get_last();
   if ($ee != null) {
