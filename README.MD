@@ -23,7 +23,10 @@ zhongpwa
 ```
 - Install web server, eg: XAMPP
 - Setup SSL in order to run PWA
-
+- create .env file
+```
+BASE_URL="https://example.com/"
+```
 
 
 
