@@ -2,6 +2,9 @@
 # About
 Please check my [blog](https://jeffrytambari.info/using-zhong-pwa/).
 
+# Demo
+[Zhong PWA](https://zhongpwa.anthonylauw.com/).
+
 # Dependencies
 Thanks to the author of [Official Zhongwen](https://github.com/cschiller/zhongwen).
 
