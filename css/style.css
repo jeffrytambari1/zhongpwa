@@ -134,4 +134,33 @@ body {
   text-decoration: underline;
   color: green;
   cursor: pointer;
+  word-wrap: break-word
 }
+
+.welcome1 {
+  padding: 5px;
+  border: 2px dashed grey;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  text-align: center;
+  font-size: larger;
+}
+.description1 {
+  padding: 5px;
+  border: 2px dashed grey;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  text-align: left;
+  margin-top: 5px;
+}
+.message1 {
+  padding: 5px;
+  border: 2px dashed grey;
+  border-radius: 5px;
+  background-color: #ffecec;
+  text-align: center;
+  font-size: larger;
+}
+
+
+
