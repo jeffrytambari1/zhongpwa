@@ -79,7 +79,7 @@ $base_url = $env["BASE_URL"];
                     </ul>
                   </li>
                   <li>If you hover every mandarin text with mouse, it will showing English translation in pop-up window.</li>
-                  <li>The source is similiar to (with adaptation): Chrome Extension "Zhongwen: Chinese-English Dictionary", only this works in Android/iOS phone where web extension only available in desktop.</li>
+                  <li>The source is similar to (with adaptation): Chrome Extension "Zhongwen: Chinese-English Dictionary", only this works on Android/iOS phone where web extension only available in desktop.</li>
                   <li>Here is the <a href="https://github.com/jeffrytambari1/zhongpwa">source</a> url</li>
                   <li>Please use this tool wisely.</li>
                 </ol>
