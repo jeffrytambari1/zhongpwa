@@ -4,13 +4,37 @@ if(typeof chrome == 'undefined') {
   var chrome = {};
 }
 
-var data1 = {
-  response: {},
-};
+// var data1 = {
+//   response: {},
+// };
 
 function callback1() {
   // console.log( 'callback1' );
 }
+
+function showMessage(text = "", isShow = true) {
+  let message_container = document.getElementById("message_container");
+  let message1 = document.getElementById("message1");
+  message1.textContent = text;
+  if(isShow) {
+    message_container.style.display = "block";
+  } else {
+    message_container.style.display = "none";
+  }
+}
+
+let timeout1; //  = setTimeout(myGreeting, 5000);
+
+function startAutoHideMessage(second = 2) {
+  if(timeout1){ clearTimeout(timeout1); }
+  timeout1 = setTimeout(autoHideMessage, second * 1000);
+}
+
+function autoHideMessage() {
+  showMessage("", false);
+  if(timeout1){ clearTimeout(timeout1); }
+}
+
 
 // to emulate chrome object
 const customRuntime = {
@@ -32,7 +56,13 @@ const customRuntime = {
   },
   triggerMessageListeners: function(message) {
     customRuntime.messageListeners.forEach(listener => {
-      listener(message, 'sender', customRuntime.currentCallback);
+      try {
+        listener(message, 'sender', customRuntime.currentCallback);
+        showMessage("", false);
+      } catch (ee) {
+        showMessage("Please wait, still loading...");
+        startAutoHideMessage();
+      }
     });
   },
   getURL: function(url) {
