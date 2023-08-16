@@ -4,6 +4,9 @@ $(document).ready(function(ev) {
   // console.log ( 'zhongwen_second.js jquery ready' );
 
   let tabId = 1;
+  
+  chrome.browserAction.clickedListener(tabId);
+
   chrome.tabs.activatedListener( {tabId: tabId} );
 
   let config = {};
