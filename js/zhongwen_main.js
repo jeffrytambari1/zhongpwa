@@ -13,6 +13,7 @@ function callback1() {
 }
 
 function showMessage(text = "", isShow = true) {
+  // console.log ( 'showMessage 1' );
   let message_container = document.getElementById("message_container");
   let message1 = document.getElementById("message1");
   message1.textContent = text;
@@ -31,7 +32,7 @@ function startAutoHideMessage(second = 2) {
 }
 
 function autoHideMessage() {
-  showMessage("", false);
+  // showMessage("", false);
   if(timeout1){ clearTimeout(timeout1); }
 }
 
@@ -47,6 +48,8 @@ const customRuntime = {
     // if (callback && typeof callback === 'function') {
     //     callback({ response: "Message received!" });
     // }
+
+    applyCssSettings();
   },
   messageListeners: [],
   onMessage: {
