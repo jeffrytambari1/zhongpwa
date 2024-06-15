@@ -64,6 +64,7 @@ const customRuntime = {
         showMessage("", false);
       } catch (ee) {
         showMessage("Please wait, still loading...");
+        console.log ( ee ); // 240616_000401 - debug
         startAutoHideMessage();
       }
     });
