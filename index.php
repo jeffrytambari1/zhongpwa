@@ -575,11 +575,47 @@ $popup_background_colors = [
     <script type="text/javascript">
       // console.log("Installing service worker");
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js?v2')
-          .then((reg) => {
-            // console.log ( 'after register' );
-            setInterval( () => reg.update(), 86400 );
+        window.addEventListener('load', () => {
+          // navigator.serviceWorker.register('sw.js?v2')
+          //   .then((reg) => {
+          //     // console.log ( 'after register' );
+          //     setInterval( () => reg.update(), 86400 );
+          //   });
+          navigator.serviceWorker.register('sw.js?v2')
+            .then((registration) => {
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+              // setInterval( () => reg.update(), 86400 );
+              registration.onupdatefound = () => {
+                const installingWorker = registration.installing;
+                installingWorker.onstatechange = () => {
+                  switch (installingWorker.state) {
+                    case 'installed':
+                      if (navigator.serviceWorker.controller) {
+                        console.log('New content is available; please refresh.');
+                      } else {
+                        console.log('Content is cached for offline use.');
+                      }
+                      break;
+                    case 'redundant':
+                      console.error('The installing service worker became redundant.');
+                      break;
+                    default:
+                      // Ignore
+                  }
+                };
+              };
+            })
+            .catch((error) => {
+                console.error('ServiceWorker registration failed: ', error);
+            });
+
+          navigator.serviceWorker.addEventListener('controllerchange', () => {
+            console.log('Controller has changed');
           });
+
+        });
+
+
       }
       const module = {};
     </script>
