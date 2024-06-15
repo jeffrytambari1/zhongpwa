@@ -26,10 +26,10 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "zhongwen/data/cedict.idx",
-        "zhongwen/data/cedict_ts.u8",
-        "data/cedict.idx",
-        "data/cedict_ts.u8"
+        "data/*.idx",
+        "data/*.u8",
+        "zhongwen/data/*.idx",
+        "zhongwen/data/*.u8"
       ],
       "matches": ["<all_urls>"]
     }
