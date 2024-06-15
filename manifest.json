@@ -36,7 +36,16 @@
         "data/*.idx",
         "data/*.u8",
         "zhongwen/data/*.idx",
-        "zhongwen/data/*.u8"
+        "zhongwen/data/*.u8",
+        "css/*",
+        "js/*",
+        "images/*",
+        "dialogues/*",
+        "directory/*",
+        "hsk/*",
+        "lyrics/*",
+        "plugins/*",
+        "zhongwen/*",
       ],
       "matches": ["<all_urls>"]
     }
