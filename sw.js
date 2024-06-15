@@ -74,7 +74,6 @@ const precachedAssets = [
 ];
 
 
-
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(cacheName).then((cache) => {
@@ -114,10 +113,17 @@ self.addEventListener('fetch', (event) => {
           return response || fetch(event.request).then((networkResponse) => {
             cache.put(event.request, networkResponse.clone());
             return networkResponse;
+          }).catch((error) => {
+            console.error('Network request failed:', error);
+            throw error;  // Ensure that the error is handled correctly
           });
+        }).catch((error) => {
+          console.error('Cache match failed:', error);
+          throw error;  // Ensure that the error is handled correctly
         });
       }).catch((error) => {
-        console.error('Failed to fetch from cache or network:', error);
+        console.error('Failed to open cache:', error);
+        throw error;  // Ensure that the error is handled correctly
       })
     );
   } else {
@@ -126,11 +132,19 @@ self.addEventListener('fetch', (event) => {
         return caches.open(cacheName).then((cache) => {
           cache.put(event.request, networkResponse.clone());
           return networkResponse;
+        }).catch((error) => {
+          console.error('Failed to open cache:', error);
+          return networkResponse;  // Return the network response even if caching fails
         });
       }).catch((error) => {
-        console.error('Failed to fetch from network:', error);
+        console.error('Network request failed:', error);
+        return caches.match(event.request).then((cacheResponse) => {
+          return cacheResponse || new Response('Failed to fetch', {
+            status: 408,
+            statusText: 'Request Timeout'
+          });
+        });
       })
     );
   }
 });
-
