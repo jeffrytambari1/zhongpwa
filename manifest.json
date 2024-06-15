@@ -27,7 +27,7 @@
     {
       "resources": [
         "zhongwen/data/cedict.idx",
-        "zhongwen/data/cedict_ts.u8"
+        "zhongwen/data/cedict_ts.u8",
         "data/cedict.idx",
         "data/cedict_ts.u8"
       ],
