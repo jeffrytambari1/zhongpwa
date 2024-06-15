@@ -73,23 +73,64 @@ const precachedAssets = [
   // 'index.php',
 ];
 
+
+
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(cacheName).then((cache) => {
-    return cache.addAll(precachedAssets);
-  }));
+  event.waitUntil(
+    caches.open(cacheName).then((cache) => {
+      return cache.addAll(precachedAssets);
+    }).catch((error) => {
+      console.error('Failed to pre-cache assets:', error);
+    })
+  );
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cache) => {
+          if (cache !== cacheName) {
+            return caches.delete(cache);
+          }
+        })
+      );
+    }).catch((error) => {
+      console.error('Failed to activate new service worker:', error);
+    })
+  );
+  self.clients.claim();
 });
 
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
-  const isPrecachedRequest = precachedAssets.includes(url.pathname);
+  const isPrecachedRequest = precachedAssets.includes(url.href);
 
   if (isPrecachedRequest) {
-    event.respondWith(caches.open(cacheName).then((cache) => {
-      return cache.match(event.request.url);
-    }));
+    event.respondWith(
+      caches.open(cacheName).then((cache) => {
+        return cache.match(event.request).then((response) => {
+          return response || fetch(event.request).then((networkResponse) => {
+            cache.put(event.request, networkResponse.clone());
+            return networkResponse;
+          });
+        });
+      }).catch((error) => {
+        console.error('Failed to fetch from cache or network:', error);
+      })
+    );
   } else {
-    return;
+    event.respondWith(
+      fetch(event.request).then((networkResponse) => {
+        return caches.open(cacheName).then((cache) => {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        });
+      }).catch((error) => {
+        console.error('Failed to fetch from network:', error);
+      })
+    );
   }
 });
-
 
