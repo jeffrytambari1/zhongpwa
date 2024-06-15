@@ -21,14 +21,17 @@
     "webRequestBlocking"
   ],
   "background": {
-    "service_worker": "sw.js"
+    "service_worker": "background.js"
   },
   "web_accessible_resources": [
     {
       "resources": [
         "zhongwen/data/cedict.idx",
         "zhongwen/data/cedict_ts.u8"
-      ]
+        "data/cedict.idx",
+        "data/cedict_ts.u8"
+      ],
+      "matches": ["<all_urls>"]
     }
   ],
   "content_scripts": [
