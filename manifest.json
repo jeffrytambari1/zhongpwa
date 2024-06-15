@@ -4,7 +4,7 @@
   "short_name": "ZhongPWA",
   "version": "1.2",
   "author": "Jeffry Tambari",
-  "homepage_url": "https://jeffrytambari.info",
+  "homepage_url": "https://zhongpwa.anthonylauw.com",
   "description": "Zhong PWA for zhongwen extension.",
   "theme_color": "#ABCDEF",
   "background_color": "#EEEEEE",
@@ -13,6 +13,13 @@
   "scope": "/",
   "id": "/?homescreen=1",
   "start_url": "/",
+  "scope_extensions": [
+    {"origin": "*.anthonylauw.com"},
+    {"origin": "zhongpwa.anthonylauw.com"}
+  ],
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+  },
   "permissions": [
     "storage",
     "activeTab",
@@ -21,7 +28,7 @@
     "webRequestBlocking"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "sw.js"
   },
   "web_accessible_resources": [
     {
@@ -55,8 +62,20 @@
       "label": "ZhongPWA"
     }
   ],
-  "display_override": ["window-control-overlay", "minimal-ui"],
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "browser"
+  ],
   "capture_links": "new-client",
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "handle_links": "preferred",
+  "permissions": [
+    "INTERNET",
+    "ACCESS_NETWORK_STATE"
+  ],
   "icon": "images/256x256.png",
   "icons": [
     {
