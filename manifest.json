@@ -45,7 +45,7 @@
         "hsk/*",
         "lyrics/*",
         "plugins/*",
-        "zhongwen/*",
+        "zhongwen/*"
       ],
       "matches": ["<all_urls>"]
     }
