@@ -879,7 +879,7 @@ $popup_background_colors = [
 
         btn_go.on('click', function() {
           loading1.show();
-          fetch(base_url + "main.php?url=" + txt_url.val())
+          fetch(base_url + "/main.php?url=" + txt_url.val())
             // .then(response => response.json())
             .then(response => response.text())
             .then(data => {
