@@ -7,6 +7,7 @@ workbox.setConfig({
 workbox.loadModule('workbox-core');
 
 const cacheName = 'ZhongPWA_v2';
+const lastUpdateCache = 'last_update';
 
 const precachedAssets = [
   'https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.min.css',
@@ -74,23 +75,62 @@ const precachedAssets = [
 ];
 
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(cacheName).then((cache) => {
-      return cache.addAll(precachedAssets);
-    }).catch((error) => {
-      console.error('Failed to pre-cache assets:', error);
-    })
-  );
+
+// Function to get the current timestamp
+function getCurrentTimestamp() {
+  return new Date().getTime();
+}
+
+// Function to get the last update timestamp from the cache
+async function getLastUpdateTimestamp() {
+  const cache = await caches.open(lastUpdateCache);
+  const response = await cache.match('timestamp');
+  if (response) {
+    const lastUpdate = await response.text();
+    return parseInt(lastUpdate, 10);
+  }
+  return 0;
+}
+
+// Function to set the last update timestamp in the cache
+async function setLastUpdateTimestamp(timestamp) {
+  const cache = await caches.open(lastUpdateCache);
+  const response = new Response(timestamp.toString());
+  await cache.put('timestamp', response);
+}
+
+// Function to check if a month has passed since the last update
+async function shouldUpdateCache() {
+  const lastUpdate = await getLastUpdateTimestamp();
+  const currentTime = getCurrentTimestamp();
+  const oneMonth = 30 * 24 * 60 * 60 * 1000; // One month in milliseconds
+  return currentTime - lastUpdate > oneMonth;
+}
+
+// Install event - cache assets and set last update timestamp if a month has passed
+self.addEventListener('install', async (event) => {
+  const updateCache = await shouldUpdateCache();
+  if (updateCache) {
+    event.waitUntil(
+      caches.open(cacheName).then((cache) => {
+        return cache.addAll(precachedAssets).then(() => {
+          return setLastUpdateTimestamp(getCurrentTimestamp());
+        });
+      }).catch((error) => {
+        console.error('Failed to pre-cache assets:', error);
+      })
+    );
+  }
   self.skipWaiting();
 });
 
+// Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cache) => {
-          if (cache !== cacheName) {
+          if (cache !== cacheName && cache !== lastUpdateCache) {
             return caches.delete(cache);
           }
         })
@@ -102,6 +142,7 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
+// Fetch event - serve from cache or fetch from network
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
   const isPrecachedRequest = precachedAssets.includes(url.href);
