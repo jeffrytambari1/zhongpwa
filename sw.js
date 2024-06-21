@@ -1,5 +1,15 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
+// function getYear_Week(dt) {
+//   dt = new Date(Date.UTC(dt.getFullYear(), dt.getMonth(), dt.getDate()));
+//   dt.setUTCDate(dt.getUTCDate() + 4 - (dt.getUTCDay()||7));
+//   let yearStart = new Date(Date.UTC(dt.getUTCFullYear(),0,1));
+//   let weekNo = Math.ceil(( ( (dt - yearStart) / 86400000) + 1)/7);
+//   let yy = dt.getFullYear().toString().substr(-2);
+//   return `${yy}_${weekNo}`; // return [dt.getFullYear(), weekNo];
+// }
+// var yy_ww = getYear_Week(new Date());
+
 workbox.setConfig({
   debug: false,
 });

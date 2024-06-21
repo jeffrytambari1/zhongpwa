@@ -2,6 +2,8 @@
 $env = parse_ini_file('.env');
 $base_url = $env["BASE_URL"];
 
+$week2 = Date('y_W');
+
 $dialogues_directory ="dialogues";
 function getRandomFileFromDirectory($directory) {
   $filesAndDirs = scandir($directory);
@@ -151,13 +153,13 @@ $popup_background_colors = [
     <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="css/todo_style.css" />
+    <link rel="stylesheet" href="css/todo_style.css?<?php echo $week2; ?>" />
 
 
     <!-- zhongwen-extension -->
     <link rel="stylesheet" type="text/css" href="zhongwen/css/content.css" />
-    <link rel="stylesheet" type="text/css" href="css/content_example.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/content_example.css?<?php echo $week2; ?>" />
+    <link rel="stylesheet" href="css/style.css?<?php echo $week2; ?>" />
 
     <style>
       /*#cursor1 {
@@ -659,14 +661,14 @@ $popup_background_colors = [
       init_handle_network_change();
     </script>
 
-    <script type="text/javascript" src="js/zhongwen_main.js"></script>
+    <script type="text/javascript" src="js/zhongwen_main.js?<?php echo $week2; ?>"></script>
     <script type="module" src="zhongwen/js/zhuyin.js"></script>
     <script type="module" src="zhongwen/dict.js"></script>
     <script type="module" src="zhongwen/background.js"></script>
     <script type="text/javascript" src="zhongwen/content.js"></script>
-    <script type="text/javascript" src="js/zhongwen_ready.js"></script>
+    <script type="text/javascript" src="js/zhongwen_ready.js?<?php echo $week2; ?>"></script>
     
-    <script type="text/javascript" src="js/todo_list.js"></script>
+    <script type="text/javascript" src="js/todo_list.js?<?php echo $week2; ?>"></script>
 
     <script type="text/javascript">
       var btn_go = $("#btn_go");
