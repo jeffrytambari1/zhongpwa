@@ -623,21 +623,21 @@ $popup_background_colors = [
     </script>
 
     <script type="text/javascript">
-      // window.onbeforeunload = null;
-      // window.onbeforeunload = function () {
-      //   // return "";
-      //   return "Press OK to refresh or quit.";
-      // };
-      // let isFormDirty = false;
-      window.addEventListener('beforeunload', function (event) {
-        // if (state.formDirty) {
-        const confirmationMessage = "You have unsaved changes. Are you sure you want to leave?";
-        event.returnValue = confirmationMessage;
-        event.preventDefault();
-        return confirmationMessage;
-        // return false;
-        // }
-      });
+      // // window.onbeforeunload = null;
+      // // window.onbeforeunload = function () {
+      // //   // return "";
+      // //   return "Press OK to refresh or quit.";
+      // // };
+      // // let isFormDirty = false;
+      // window.addEventListener('beforeunload', function (event) {
+      //   // if (state.formDirty) {
+      //   const confirmationMessage = "You have unsaved changes. Are you sure you want to leave?";
+      //   event.returnValue = confirmationMessage;
+      //   event.preventDefault();
+      //   return confirmationMessage;
+      //   // return false;
+      //   // }
+      // });
     </script>
     <script type="text/javascript">
       let offlineInfo = document.getElementById("offlineInfo");
