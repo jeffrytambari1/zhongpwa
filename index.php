@@ -92,7 +92,7 @@ $popup_background_colors = [
     <link id="favicon" rel="icon" href="favicon.ico" type="image/x-icon">
   	<link rel="apple-touch-icon" href="images/apple-touch.png" />
 
-  	<link rel="manifest" href="manifest.json?v2" />
+  	<link rel="manifest" href="manifest.json?v3" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="apple-touch-icon" href="images/icon-192x192.png" />
     <meta name="theme-color" content="#ABCDEF" />
