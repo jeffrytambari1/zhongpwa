@@ -1,9 +1,9 @@
 
 # About
-Please check my [blog](https://jeffrytambari.info/using-zhong-pwa/).
+Please check my [blog](https://vrhythm.net/using-zhong-pwa/).
 
 # Demo
-[Zhong PWA](https://zhongpwa.anthonylauw.com/).
+[Zhong PWA](https://zhongpwa.vrhythm.net/).
 
 # Dependencies
 Thanks to the author of [Official Zhongwen](https://github.com/cschiller/zhongwen).
