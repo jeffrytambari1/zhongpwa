@@ -24,10 +24,6 @@
 
 body {
   background-color: white;
-  /*  background-color: yellow;*/
-  /*  overscroll-behavior-y: contain;*/
-  /*overflow: hidden;
-  overscroll-behavior: none;*/
 }
 *,
 *::before,
@@ -35,13 +31,15 @@ body {
   box-sizing: inherit;
 }
 
+
 .header0 {
   padding: 0;
   padding: 3px;
   margin: 0;
-  /*  width: 98%;*/
-  /*  width: calc(100% - 15px);*/
-  /*  align-items: center;*/
+  position: fixed;
+  z-index: 99999999 !important;
+  width: calc(100% - 6px);
+  background-color: #212121 !important;
 }
 
 .main0 {
@@ -73,8 +71,6 @@ body {
 }*/
 
 [class*='col-'] {
-/* padding-right: 0;
- padding-left: 0;*/
   padding: 0px;
   margin: 0px;
   --bs-gutter-x: 0;
@@ -82,6 +78,7 @@ body {
 }
 .main1 {
   margin-top: 2px;
+  padding-top: 50px;
 }
 .button1 {
   width: 100%;
@@ -90,13 +87,6 @@ body {
 .button1:active {
   background-color: white;
 }
-
-
-.button2 {
-  height: 20px;
-}
-
-
 .div_button3 {
   padding: 5px;
 }
@@ -106,50 +96,24 @@ body {
 }
 
 
-
-.btn_go, .btn_reload {
-  padding: 8px 16px;
-  background-color: rgb(240, 240, 240);
-  border-radius: 5px;
-  /*  max-height: 30px !important;
-  /*  height: 30px;*/
-  /*  line-height: 30px;*/
-  /*  font-size: 12px;*/
+.txt_url::placeholder {
+  color: #a0a0a0;
+  opacity: 1; /* Ensures full opacity in Firefox */
+}
+/* For Internet Explorer 10-11 */
+.txt_url:-ms-input-placeholder {
+  color: #a0a0a0;
+}
+/* For Microsoft Edge */
+.txt_url::-ms-input-placeholder {
+  color: #a0a0a0;
 }
 
-.txt_url {
-  /*  font-size: 16px !important;*/
-  /*  font-style: normal !important;*/
-  /*  line-height: 24px !important;*/
-  /*  max-height: 30px !important;*/
-  padding: 6px 12px;
-  /*  border-radius: 5px !important;*/
-}
-
-
-/*.frm1_container {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
- }
-
-.frm1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}*/
 
 
 .frm1_container {
-  padding-left: 5px;
-  padding-right: 5px;
- }
-
-
-
+  padding: 0px;
+}
 .loading-image {
   /*position: absolute;
   top: 100px;
@@ -165,7 +129,6 @@ body {
   z-index: 99;
   text-align: center;
 }
-
 .loading-image {
   position: fixed;
   width: 80px;
@@ -177,12 +140,12 @@ body {
   transform: -moz-translate(-50%, -50%);
   transform: -ms-translate(-50%, -50%);
 }
-
 .icon_right {
   background: url("../images/icons/arrow-right.png") no-repeat scroll 0 0 transparent;
 }
 .icon_reload {
-  background: url("../images/icons/reload.png") no-repeat scroll 0 0 transparent;
+  /*background: url("../images/icons/reload.png") no-repeat scroll 0 0 transparent;*/
+  background: url("../images/icons/home.png") no-repeat scroll 0 0 transparent;
 }
 .icon_delete {
   background: url("../images/icons/delete.png") no-repeat scroll 0 0 transparent;
@@ -194,25 +157,16 @@ body {
   background: url("../images/icons/wifi_off.png") no-repeat scroll 0 0 transparent;
   /*  animation: fa-beat2 5s infinite;*/
 }
-
 .icon1 {
-  /*  background: url("../images/icons/arrow-right.png") no-repeat scroll 0 0 transparent;*/
   color: #000000;
   cursor: pointer;
   font-weight: bold;
-  /*  height: 14px;*/
-  /*  width: auto;*/
-  /*  padding-bottom: 2px;*/
-  /*  width: 75px;*/
   width: 15px;
   height: 15px;
   display: inline-block; 
   background-position: center;
   background-size: contain;
 }
-
-
-
 .ul_url_list {
   padding-left: 0;
   list-style-type: square;
@@ -225,7 +179,6 @@ body {
   word-wrap: break-word;
   margin: 10px;
 }
-
 .welcome1 {
   padding: 5px;
   border: 2px dashed grey;
@@ -250,7 +203,6 @@ body {
   text-align: center;
   font-size: larger;
 }
-
 .squared {
   width: 25px;
   height: 25px;
@@ -263,7 +215,6 @@ body {
 }
 #zhongwen-window .w-hanzi-small {
   font-size: 10px !important;
-
 }
 #zhongwen-window .w-pinyin-small {
   font-size: 10px !important;
@@ -273,16 +224,12 @@ body {
 }
 */
 /*  grammar*/
-  
-
 
 
 
 .ui-accordion .ui-accordion-header {
   background-image: linear-gradient(to bottom right, #0e6b7a78, #6ce7fa);
 }
-
-
 .ui-accordion .ui-accordion-content {
   padding: 5px 10px;
 }
@@ -307,10 +254,6 @@ body {
 .dialogues .dialogue .line .speaker_B {
   color: navy;
 }
-
-
-
-
 
 
 
@@ -424,8 +367,6 @@ body {
 
 
 
-
-
 #div2.text_result.enable_counting {
   text-indent: -10px;
   padding-left: 10px;
@@ -442,9 +383,6 @@ body {
 
 
 
-
-
-
 #zhongwen_window_example {
   width: auto;
   height: auto;
@@ -455,7 +393,6 @@ body {
   position: relative;
   margin-top: 24px;
 }
-
 
 
 
@@ -481,9 +418,6 @@ body {
 
 
 #offlineInfo {
-  /*  background-color: whitesmoke;*/
-  /*  color: #ecadadbf;*/
-  /*  border-radius: 10px;*/
   z-index: 1031;
   position: fixed;
   width: 10rem;

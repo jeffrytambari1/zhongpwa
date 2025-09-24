@@ -1,11 +1,11 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Zhong PWA",
   "short_name": "ZhongPWA",
-  "version": "1.2",
+  "version": "1.3",
   "author": "Jeffry Tambari",
-  "homepage_url": "https://zhongpwa.anthonylauw.com",
-  "description": "Zhong PWA for zhongwen extension.",
+  "homepage_url": "https://zhongpwa.vrhythm.net",
+  "description": "Zhong PWA for learning Mandarin, hovering/touching Chinese character to reveal the meaning",
   "theme_color": "#ABCDEF",
   "background_color": "#EEEEEE",
   "display": "standalone",
@@ -14,8 +14,8 @@
   "id": "/?homescreen=1",
   "start_url": "/",
   "scope_extensions": [
-    {"origin": "*.anthonylauw.com"},
-    {"origin": "zhongpwa.anthonylauw.com"}
+    {"origin": "*.vrhythm.net"},
+    {"origin": "zhongpwa.vrhythm.net"}
   ],
   "launch_handler": {
     "client_mode": ["navigate-existing", "auto"]
@@ -85,6 +85,15 @@
     "INTERNET",
     "ACCESS_NETWORK_STATE"
   ],
+  "share_target": {
+    "action": "/share-target",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
   "icon": "images/256x256.png",
   "icons": [
     {
