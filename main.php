@@ -10,6 +10,20 @@ header("Content-Security-Policy: default-src 'none'; base-uri 'none'; frame-ance
 
 date_default_timezone_set('Asia/Jakarta');
 
+
+
+function shutdown() {
+  $ee = error_get_last();
+  if ($ee != null) {
+    // http_response_code(429);
+    $file1 = fopen("error.html", "r") or die("Unable to open file!");
+    $content = fread($file1, filesize("error.html"));
+    fclose($file1);
+  }
+}
+
+
+
 // --------------------- SECURED CURL
 
 /* =======================
@@ -465,6 +479,9 @@ $ALLOW_HOSTS = [
 $RATE_LIMIT_MAX_PER_DAY = 2000; // 250929_141902 - debug
 // $RATE_LIMIT_STORE_DIR   = sys_get_temp_dir() . '/fetch_rate_limit'; // make sure PHP can write
 $RATE_LIMIT_STORE_DIR   = $limitFolderPath;
+
+
+register_shutdown_function('shutdown');
 
 
 logUserActivity();
