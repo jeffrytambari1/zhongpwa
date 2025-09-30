@@ -86,7 +86,7 @@ $popup_background_colors = [
     <script type="text/javascript">
       const base_url = "<?php echo $base_url; ?>";
     </script>
-    <base href="<?php echo $base_url; ?>" />
+    <!-- <base href="<?php /* echo $base_url; */ ?>" /> -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link id="favicon" rel="icon" href="favicon.ico" type="image/x-icon">
@@ -94,6 +94,7 @@ $popup_background_colors = [
 
   	<link rel="manifest" href="manifest.json?v3" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, shrink-to-fit=no" /> -->
     <link rel="apple-touch-icon" href="images/icon-192x192.png" />
     <meta name="theme-color" content="#ABCDEF" />
     <meta name="msapplication-TileColor" content="#ABCDEF"/>
@@ -115,17 +116,22 @@ $popup_background_colors = [
     <!-- zhongwen-extension -->
     <link rel="stylesheet" type="text/css" href="zhongwen/css/content.css" />
     <link rel="stylesheet" type="text/css" href="css/content_example.css?<?php echo $week2; ?>" />
-    <link rel="stylesheet" href="css/style.css?<?php echo $week2; ?>" />
+    <link rel="stylesheet" href="css/zhongpwa_style.css?<?php echo $week2; ?>" />
   </head>
   <body style="
     background-color: #212121 !important;
   ">
     <div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts">
       <div class="toast-container position-fixed p-3 top-0 end-0" id="toastPlacement">
-        <div id="divToast" class="toast align-items-center bg-success text-white border-0 toast1" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="divToast" class="toast align-items-center bg-success text-white border-0 toast1" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="1000000">
           <div class="d-flex">
             <div class="toast-body toast_body"></div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"
+              style="
+                margin: auto !important;
+                margin-right: .5rem !important;
+              " 
+            ></button>
           </div>
         </div>
       </div>
@@ -137,49 +143,50 @@ $popup_background_colors = [
     <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar header0 header1" id="header1">
       <div class="col-12 padding0">
         <div class="input-group">
-            <input value="" class="form-control txt_url" type="text" id="txt_url" placeholder="eg. https://zh.wikipedia.org/wiki/Wikipedia:首页" style="
+          <input value="" class="form-control txt_url" type="text" id="txt_url" placeholder="eg. https://zh.wikipedia.org/wiki/Wikipedia:首页" style="
               height: 38px !important;
-              padding: 2px 8px !important;
+              padding: 2px 16px !important;
               box-sizing: content-box !important;
               border-top-left-radius: 50px !important;
               border-bottom-left-radius: 50px !important;
               background-color: #303030 !important;
               color: white !important;
-            ">
-            <span class="input-group-btn" style="height: 38px !important;">
-               <button class="btn btn-default button2 btn_go" type="submit" id="btn_go" style="
+              font-family: var(--bs-body-font-family) !important;
+            " />
+
+          <span class="input-group-btn" style="height: 38px !important;">
+            <button class="btn btn-default button2 btn_go" type="submit" id="btn_go" style="
                 height: 38px !important;
                 width: 40px !important;
                 padding: 2px 4px !important;
                 background-color: white !important;
                 border-radius: 5px !important;
                 box-sizing: content-box !important;
-               ">
-                  <i class="icon1 icon_right" style="
-                    height: 15px !important;
-                    width: 15px !important;
-                  "></i>
-               </button>
-               <button class="btn btn-default button2 btn_reload" type="button" id="btn_reload" style="
+              " >
+              <i class="icon1 icon_right" style="
+                  height: 15px !important;
+                  width: 15px !important;
+                " ></i>
+            </button>
+            <button class="btn btn-default button2 btn_reload" type="button" id="btn_reload" style="
                 height: 38px !important;
                 width: 40px !important;
                 padding: 2px 4px !important;
                 background-color: white !important;
                 border-radius: 5px !important;
                 box-sizing: content-box !important;
-               ">
-                  <i class="icon1 icon_reload" style="
-                    height: 15px !important;
-                    width: 15px !important;
-                  "></i>
-               </button>
-            </span>
+              " >
+              <i class="icon1 icon_reload" style="
+                  height: 15px !important;
+                  width: 15px !important;
+                " ></i>
+            </button>
+          </span>
         </div>
       </div>
     </header>
 
-
-    <main class="bd-masthead main0 main1" id="content" role="main" style="height: auto; width: 100%;">
+    <main class="bd-masthead main0 main1" id="content" role="main" style="height: auto; width: 100vw;">
       <div class="row h-100 padding0">
         <div class="col-12 h-100 padding0 frm1_container">
           <div id="div1" class="col-12 padding0">
@@ -188,7 +195,7 @@ $popup_background_colors = [
               </div>
             </div>
           </div>
-          <div id="div2" class="col-12 padding0" style="visibility: hidden; background-color: white;">
+          <div id="div2" class="col-12 padding0" style="visibility: hidden; background-color: white; width: 100vw;">
 
             <h3 class="heading1">Nǐ hǎo - 你好</h3>
             <div class="prewords" style="padding: 0; padding-top: 7px;">
@@ -200,15 +207,34 @@ $popup_background_colors = [
                 <b>How to use:</b>
                 <ol>
                   <li>
-                    Fill textbox with any site url, then press button <i class="icon1 icon_right" style="height: 15px !important; width: 15px !important;"></i>. Example of recommended Mandarin website:
-                    <ul id="ul_url_list1" class="ul_url_list">
-                      <li>https://www.bbc.com/zhongwen/simp/chinese-news-66449834</li>
-                      <li>https://www.bbc.com/zhongwen/simp/world-66141140</li>
-                      <li>https://zh.wikipedia.org/wiki/Wikipedia:首页</li>
-                      <li>https://www.rfa.org/mandarin</li>
-                      <li>https://www.chinatimes.com/?chdtv</li>
-                      <li>https://scdaily.com/</li>
-                    </ul>
+                    Fill textbox with any site url, then press button <i class="icon1 icon_right" style="height: 15px !important; width: 15px !important;"></i>
+
+                    <div class="container2">
+                      <b class="">
+                        <a href="#" id="toggleList" class="text-decoration-none">
+                          Example of recommended Mandarin website: <span class="ms-2" id="toggleIcon">[ ➕ ]</span>
+                        </a>
+                      </b>
+                      <div id="websiteList" class="border rounded bg-light ps-2" style="
+                          display: none;
+                          " >
+                        <ul id="ul_url_list1" class="ul_url_list">
+                          <li>https://zh.m.wikipedia.org/wiki/印度尼西亚</li>
+                          <li>https://zh.wikipedia.org/wiki/雅加达</li>
+                          <li>https://www.bbc.com/zhongwen/articles/c9wdnd1ynd8o/simp</li>
+                          <li>https://www.bbc.com/zhongwen/simp/world-66141140</li>
+                          <li>https://www.rfa.org/mandarin</li>
+                          <li>https://scdaily.com/</li>
+                          <li>https://www.douban.com/</li>
+                          <li>https://www.setn.com</li>
+                          <li>https://www.hk01.com/%E5%8D%B3%E6%99%82%E5%9C%8B%E9%9A%9B/1085780/%E5%8D%B0%E5%B0%BC%E5%A4%AE%E8%A1%8C%E7%96%91%E6%B6%89%E6%8C%AA%E7%94%A8%E5%85%AC%E6%AC%BE-%E8%A1%8C%E9%95%B7%E8%BE%A6%E5%85%AC%E5%AE%A4%E9%81%AD%E5%8F%8D%E8%B2%AA%E6%A9%9F%E6%A7%8B%E6%90%9C%E6%9F%A5?itm_source=universal_search&itm_campaign=hk01&itm_content=all&itm_medium=web</li>
+                          <li>https://news.mingpao.com/pns/%e8%a7%80%e9%bb%9e/article/20250929/s00012/1759075905107/%e7%ad%86%e9%99%a3-%e6%90%b6%e5%a5%aa%e5%b0%8d%e6%97%a5%e9%97%9c%e4%bf%82%e4%b8%bb%e5%b0%8e%e6%ac%8a-%e5%9c%8b%e6%b0%91%e9%bb%a8%e4%b8%89%e5%9c%98%e5%a4%a7%e9%99%a3%e4%bb%97%e8%a8%aa%e6%97%a5%e7%9a%84%e6%b7%b1%e5%b1%a4%e6%84%8f%e7%be%a9-%e6%96%87-%e6%9e%97%e6%b3%89%e5%bf%a0</li>
+                          <li>https://www.stheadline.com/breaking-news/3503909/%E5%B1%B1%E9%A0%82%E7%92%B0%E7%BF%A0%E5%9C%92%E5%96%AE%E4%BD%8D%E9%81%AD%E7%88%86%E7%AB%8A-%E4%BC%B0%E8%A8%88%E6%90%8D%E5%A4%B1500%E8%90%AC%E7%8F%A0%E5%AF%B6</li>
+                          <li>https://www.rthk.hk</li>
+                        </ul>
+                      </div>
+                    </div>
+
                   </li>
                   <li>If you hover/touch every mandarin text with mouse/finger, it will showing English translation in pop-up window.</li>
                   <li>This app use desktop Chrome Extension "Zhongwen: Chinese-English Dictionary", which only works in desktop.</li>
@@ -284,7 +310,7 @@ $popup_background_colors = [
 
             <h3 class="heading1">Settings</h3>
             <div class="settings">
-              <div class="row row0">
+              <div class="row row0 mb-4">
                 <div class="col-12 col-md-4 col0">
                   <div class="row row0">
                     <div class="col-12 col0">
@@ -396,7 +422,10 @@ $popup_background_colors = [
     <footer class="bd-footer text-muted" style="height: 2px;">
       <div style="font-size: 12px !important; padding-left: 5px !important; color: white !important;">
         good words. 
-        <a href="https://vrhythm.net/using-zhong-pwa/">help</a>
+        <a href="https://vrhythm.net/using-zhong-pwa/" style="
+            color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+            text-decoration: underline;
+            " >help</a>
         <i class="bi bi-0-circle-fill"></i>
       </div>
     </footer>
@@ -616,8 +645,12 @@ $popup_background_colors = [
                 html1 = html1.replace(/<\!DOCTYPE[^>]*>/gi,"<!-- doctype1 -->")
                   .replace(/<html[^>]*>/gi,"<div class=\"html1\">").replace(/<\/html[^>]*>/gi,"<\/div>")
                   .replace(/<head[^>]*>/gi,"<div class=\"head1\" no_hidden>").replace(/<\/head[^>]*>/gi,"<\/div>")
-                  .replace(/<script[^>]*>/gi,"<div class=\"script1\" hidden>").replace(/<\/script[^>]*>/gi,"<\/div>")
-                  .replace(/<body[^>]*>/gi,"<div class=\"body1\">").replace(/<\/body[^>]*>/gi,"<\/div>");
+                  // .replace(/<script[^>]*>/gi,"<div class=\"script1\" hidden>").replace(/<\/script[^>]*>/gi,"<\/div>")
+                  //   .replace(/<body[^>]*>/gi,"<div class=\"body1\">").replace(/<\/body[^>]*>/gi,"<\/div>");
+                  // // .replace(/<a[^>]*>/gi,"<aa class=\"a1\">").replace(/<\/a[^>]*>/gi,"<\/aa>")
+                  .replace(/<a\b([^>]*)>/gi,'<aa$1>').replace(/<\/a\b\s*>/gi, '</aa>')
+                  ;
+
                 div2.html(html1);
 
                 url2 = txt_url.val();
@@ -632,12 +665,16 @@ $popup_background_colors = [
 
               setProtocolDomainFromUrl(url2);
 
-              $('a').on('click', function(ee, bb) {
+              $('aa').off('click').on('click', function(ee, bb) {
                 let aa = $(this);
                 let href = aa.attr('href');
-                txt_url.val(getFullUrl(href));
+                txt_url.val("..."); // to show url has changed
+                // txt_url.addClass('attention-element');
+                setTimeout(function() {
+                  txt_url.val(getFullUrl(href));
+                }, 500);
                 ee.preventDefault();
-                btn_go.click();
+                // btn_go.click();
               });
 
               let srcNodeList = div2.get(0).querySelectorAll('[src],[href]');
@@ -819,12 +856,6 @@ $popup_background_colors = [
         }
       };
 
-      function openContact(contact_type = 'phone', destination = '', title = '', text = '') {
-        let url = getContactUrl(contact_type, destination, title, text);
-        if(url.length > 0) {
-          loadUrlBlankPage(url);
-        }
-      }
       function getElementPositionValue(obj, type = 'top', isRelative = true) { // type = top/bottom/left/right/all, relative/absolute
         let ret;
         if(isRelative) {
@@ -882,11 +913,9 @@ $popup_background_colors = [
 
         fab1.secondary_buttons.random.obj.on('click', function() {
           randomScroll();
-          showNotif(fab1.secondary_buttons.random.obj);
         });
         fab1.secondary_buttons.tab_space.obj.on('click', function() {
           convertTabSpace(div2);
-          showNotif(fab1.secondary_buttons.tab_space.obj);
         });
         fab1.secondary_buttons.plus_font_size.obj.on('click', function() {
           changeFontSizeTextFiles(div2, +1);
@@ -964,19 +993,6 @@ $popup_background_colors = [
     </script>
 
     <script type="text/javascript">
-      const toast1 = $('#divToast');
-      function showNotif(obj) {
-        if(obj.is_show_notif) {
-          let btn = $(this);
-          let title = btn.attr('title');
-          toast1.find('.toast_body').text(title);
-          toast1.toast('show');
-          fab1.secondary_buttons.random.is_show_notif = false;
-        }
-      }
-    </script>
-
-    <script type="text/javascript">
       (function () {
         try {
           const u = new URL(location.href);
@@ -1004,6 +1020,22 @@ $popup_background_colors = [
         }, 100);
       });
     </script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#toggleList").click(function(e){
+          e.preventDefault();
+          $("#websiteList").slideToggle();
+          setTimeout(function() {
+            $("#toggleIcon").text(
+              $("#websiteList").is(":visible") ? "[ ➖ ]" : "[ ➕ ]"
+            );
+          }, 500);
+        });
+      });
+    </script>
+
+
 
   </body>
 </html>

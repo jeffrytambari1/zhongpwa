@@ -21,7 +21,6 @@
   --fa-animation-timing: ease-in-out;
 }
 
-
 body {
   background-color: white;
 }
@@ -31,6 +30,12 @@ body {
   box-sizing: inherit;
 }
 
+[class*='col-'] {
+  padding: 0px;
+  margin: 0px;
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
+}
 
 .header0 {
   padding: 0;
@@ -58,19 +63,6 @@ body {
   margin: 0px;
 }
 .row0 {
-  padding: 0px;
-  margin: 0px;
-  --bs-gutter-x: 0;
-  --bs-gutter-y: 0;
-}
-/*.col0 {
-  padding: 0px;
-  margin: 0px;
-  --bs-gutter-x: 0;
-  --bs-gutter-y: 0;
-}*/
-
-[class*='col-'] {
   padding: 0px;
   margin: 0px;
   --bs-gutter-x: 0;
@@ -224,7 +216,6 @@ body {
 }
 */
 /*  grammar*/
-
 
 
 .ui-accordion .ui-accordion-header {
@@ -437,7 +428,9 @@ body {
   width: 24px;
 }
 
-
-
+aa {
+  color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+  text-decoration: underline;
+}
 
 

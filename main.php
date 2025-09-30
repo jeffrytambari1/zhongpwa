@@ -11,18 +11,22 @@ header("Content-Security-Policy: default-src 'none'; base-uri 'none'; frame-ance
 date_default_timezone_set('Asia/Jakarta');
 
 
-
 function shutdown() {
+  global $now1, $today2, $logFolderPath;
   $ee = error_get_last();
   if ($ee != null) {
-    // http_response_code(429);
-    $file1 = fopen("error.html", "r") or die("Unable to open file!");
-    $content = fread($file1, filesize("error.html"));
+    $logFilePath = __DIR__ . DIRECTORY_SEPARATOR . $logFolderPath . DIRECTORY_SEPARATOR . "error_log-{$today2}.txt";
+    $logEntry = date('Y-m-d H:i:s') . ' - ' . print_r($ee, true);
+    file_put_contents($logFilePath, $logEntry, FILE_APPEND);
+
+    http_response_code(429);
+    $fp1 = __DIR__ . DIRECTORY_SEPARATOR . "error.html";
+    $file1 = fopen($fp1, "r") or die("Unable to open file!");
+    $content = fread($file1, filesize($fp1));
     fclose($file1);
+    echo $content;
   }
 }
-
-
 
 // --------------------- SECURED CURL
 
@@ -440,16 +444,15 @@ function fetch1($url) {
     'max_redirects' => 3,
     'max_bytes'     => 5 * 1024 * 1024, // 5 MB
   ]);
-
   if (!$res['ok']) {
     http_response_code(400);
     $msg = htmlspecialchars($res['error'] ?: ('HTTP '.$res['status']), ENT_QUOTES, 'UTF-8');
-    echo "Blocked or failed: $msg";
+    throw new Exception("Blocked or failed: $msg");
     exit;
   }
-
   $response = $res['body'];
-  $safe = sanitize_links($response);
+  $safe = $response;
+  // $safe = sanitize_links($response);
   return $safe;
 }
 
@@ -470,14 +473,12 @@ $ALLOW_URLS = [
 $ALLOW_HOSTS = [
   // 'zh.wikipedia.org',
   // 'zh.m.wikipedia.org',
-  // // 'baike.baidu.com',
-  // // '*.example.cn',
+  // 'baike.baidu.com',
+  // '*.example.cn',
 ];
 
-// Per-IP rate limit
 // $RATE_LIMIT_MAX_PER_DAY = 100;
 $RATE_LIMIT_MAX_PER_DAY = 2000; // 250929_141902 - debug
-// $RATE_LIMIT_STORE_DIR   = sys_get_temp_dir() . '/fetch_rate_limit'; // make sure PHP can write
 $RATE_LIMIT_STORE_DIR   = $limitFolderPath;
 
 
@@ -491,7 +492,7 @@ $url = @$_GET['url'];
 $url = trim($url);
 if (strlen($url) > 2048) {
   http_response_code(400);
-  echo "Bad request.";
+  throw new Exception('Bad request.');
   exit;
 }
 
