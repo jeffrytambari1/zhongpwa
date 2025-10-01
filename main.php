@@ -477,8 +477,7 @@ $ALLOW_HOSTS = [
   // '*.example.cn',
 ];
 
-// $RATE_LIMIT_MAX_PER_DAY = 100;
-$RATE_LIMIT_MAX_PER_DAY = 2000; // 250929_141902 - debug
+$RATE_LIMIT_MAX_PER_DAY = 100;
 $RATE_LIMIT_STORE_DIR   = $limitFolderPath;
 
 
