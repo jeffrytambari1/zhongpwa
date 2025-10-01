@@ -203,16 +203,15 @@ $popup_background_colors = [
                 欢迎用户。 &nbsp; Huānyíng yònghù. &nbsp; Welcome User. &nbsp; Selamat Datang Pengguna.
               </div>
               <div class="description1">
-                This is Zhong PWA (Progressive Web Application) for learning Chinese. <br>
+                This is Zhong PWA (Progressive Web Application) for learning Chinese. <br/>
                 <b>How to use:</b>
-                <ol>
+                <ol style="padding-left: 18px;">
                   <li>
-                    Fill textbox with any site url, then press button <i class="icon1 icon_right" style="height: 15px !important; width: 15px !important;"></i>
-
+                    Fill textbox with Mandarin site url <br/>
                     <div class="container2">
                       <b class="">
                         <a href="#" id="toggleList" class="text-decoration-none">
-                          Example of recommended Mandarin website: <span class="ms-2" id="toggleIcon">[ ➕ ]</span>
+                          Recommended Mandarin sites: <span class="ms-2" id="toggleIcon">[&nbsp;➕&nbsp;]</span>
                         </a>
                       </b>
                       <div id="websiteList" class="border rounded bg-light ps-2" style="
@@ -234,24 +233,38 @@ $popup_background_colors = [
                         </ul>
                       </div>
                     </div>
-
                   </li>
-                  <li>If you hover/touch every mandarin text with mouse/finger, it will showing English translation in pop-up window.</li>
-                  <li>This app use desktop Chrome Extension "Zhongwen: Chinese-English Dictionary", which only works in desktop.</li>
-                  <li>This app works on Android/iOS mobile phone.</li>
-                  <li>We use this app to learn Mandarin vocabularies (HSK Files) & Dialogues</li>
+                  <li>
+                    Press <i class="icon1 icon_right" style="height: 15px !important; width: 15px !important;"></i> to load
+                  </li>
+                  <li>
+                    Press <i class="icon1 icon_reload" style="height: 15px !important; width: 15px !important;"></i> to reload this page
+                  </li>
+                  <li>Hover/touch each mandarin text (eg. 中文) with mouse/finger, will showing English translation in pop-up window</li>
                 </ol>
 
-                <p>Github repo <a href="https://github.com/jeffrytambari1/zhongpwa" target="_blank" rel="noopener">source</a></p>
-                <p>📧 <a href="https://vrhythm.net/#contact" target="_blank" rel="noopener">Contact me</a> if you have question or business inquiry.</p>
-                <p>💖 <a href="https://vrhythm.net/zhong_pwa/" target="_blank" rel="noopener">Support My Work</a> - If you find this app useful 🙏</p>
+                <b>Note:</b>
+                <ol style="padding-left: 18px;">
+                  <li>This app use desktop Chrome Extension "Zhongwen: Chinese-English Dictionary", which only works in desktop.</li>
+                  <li>This app works on Android/iOS mobile phone.</li>
+                  <li>Learn more from HSK Files & Dialogues</li>
+                </ol>
+
+                <b>Contact:</b>
+                <ol style="padding-left: 18px;">
+                  <li>Github repo <a href="https://github.com/jeffrytambari1/zhongpwa" target="_blank" rel="noopener">source</a></li>
+                  <li>📧 <a href="https://vrhythm.net/#contact" target="_blank" rel="noopener">Contact me</a> if you have question or business inquiry.</li>
+                  <li>💖 <a href="https://vrhythm.net/zhong_pwa/" target="_blank" rel="noopener">Support My Work</a> - If you find this app useful 🙏</li>
+                </ol>
 
               </div>
             </div>
 
-
             <h3 class="heading1">Files</h3>
             <div class="files">
+              Learn Mandarin from HSK Vocabulary list. <br>
+              Press <i class="icon1 icon_right" style="height: 15px !important; width: 15px !important;"></i> to view<br>
+              Press <i class="icon1 icon_reload" style="height: 15px !important; width: 15px !important;"></i> to reload this page
               <ul id="ul_url_list2" class="ul_url_list" style="height: 250px;">
                 <li>hsk/hsk_1_vocabulary_list.txt</li>
                 <li>hsk/hsk_2_vocabulary_list.txt</li>
@@ -265,21 +278,19 @@ $popup_background_colors = [
               </ul>
             </div>
 
-
-
-            <h3 class="heading1">Directory</h3>
+            <!-- 251001_143155 - disabled -->
+            <!-- <h3 class="heading1">Directory</h3>
             <div class="directory">
               <ul id="ul_url_list3" class="ul_url_list" style="height: 250px;">
                 <?php 
-                foreach ($directory_file_list as $df_ky => $df_dt) {
-                  echo "<li>{$df_dt}</li>";
-                }
+                // foreach ($directory_file_list as $df_ky => $df_dt) {
+                //   echo "<li>{$df_dt}</li>";
+                // }
                 ?>
               </ul>
-            </div>
+            </div> -->
 
-
-            <h3 class="heading1">Saved URLs</h3>
+            <h3 class="heading1">Saved URL</h3>
             <div class="saved_urls">
               <main class="todo_app" id="div_todo_app">
                 <div style="display: none;">
@@ -306,7 +317,6 @@ $popup_background_colors = [
                 <div class='dialogues'></div>
               </main>
             </div>
-
 
             <h3 class="heading1">Settings</h3>
             <div class="settings">
@@ -335,7 +345,6 @@ $popup_background_colors = [
                         </div>
                       </div>
                     </div>
-
 
                     <div class="col-12 col0" style="margin-top: 20px;">
                       Background Color
@@ -669,7 +678,6 @@ $popup_background_colors = [
                 let aa = $(this);
                 let href = aa.attr('href');
                 txt_url.val("..."); // to show url has changed
-                // txt_url.addClass('attention-element');
                 setTimeout(function() {
                   txt_url.val(getFullUrl(href));
                 }, 500);
@@ -887,8 +895,6 @@ $popup_background_colors = [
         var radians = angle * (Math.PI / 180);
         var x = initialX + distance * Math.cos(radians);
         var y = initialY + distance * Math.sin(radians);
-        // x = Math.abs(x);
-        // y = Math.abs(y);
         return { x: x, y: y };
       }
       function setFloatingActionButtonShare() {
