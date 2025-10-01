@@ -227,10 +227,11 @@ $popup_background_colors = [
                           <li>https://www.douban.com/</li>
                           <li>https://www.setn.com</li>
                           <li>https://www.hk01.com/%E5%8D%B3%E6%99%82%E5%9C%8B%E9%9A%9B/1085780/%E5%8D%B0%E5%B0%BC%E5%A4%AE%E8%A1%8C%E7%96%91%E6%B6%89%E6%8C%AA%E7%94%A8%E5%85%AC%E6%AC%BE-%E8%A1%8C%E9%95%B7%E8%BE%A6%E5%85%AC%E5%AE%A4%E9%81%AD%E5%8F%8D%E8%B2%AA%E6%A9%9F%E6%A7%8B%E6%90%9C%E6%9F%A5?itm_source=universal_search&itm_campaign=hk01&itm_content=all&itm_medium=web</li>
-                          <li>https://news.mingpao.com/pns/%e8%a7%80%e9%bb%9e/article/20250929/s00012/1759075905107/%e7%ad%86%e9%99%a3-%e6%90%b6%e5%a5%aa%e5%b0%8d%e6%97%a5%e9%97%9c%e4%bf%82%e4%b8%bb%e5%b0%8e%e6%ac%8a-%e5%9c%8b%e6%b0%91%e9%bb%a8%e4%b8%89%e5%9c%98%e5%a4%a7%e9%99%a3%e4%bb%97%e8%a8%aa%e6%97%a5%e7%9a%84%e6%b7%b1%e5%b1%a4%e6%84%8f%e7%be%a9-%e6%96%87-%e6%9e%97%e6%b3%89%e5%bf%a0</li>
-                          <li>https://www.stheadline.com/breaking-news/3503909/%E5%B1%B1%E9%A0%82%E7%92%B0%E7%BF%A0%E5%9C%92%E5%96%AE%E4%BD%8D%E9%81%AD%E7%88%86%E7%AB%8A-%E4%BC%B0%E8%A8%88%E6%90%8D%E5%A4%B1500%E8%90%AC%E7%8F%A0%E5%AF%B6</li>
                           <li>https://www.rthk.hk</li>
                         </ul>
+                        <aside>
+                          <p><strong>NB:</strong> Not all sites rendered correctly.</p>
+                        </aside>
                       </div>
                     </div>
                   </li>
